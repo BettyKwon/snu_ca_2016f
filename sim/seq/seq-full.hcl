@@ -196,7 +196,7 @@ bool mem_write = icode in { IRMMOVL, IPUSHL, ICALL };
 
 ## Select memory address
 int mem_addr = [
-	icode in { IRMMOVL, IPUSHL, ICALL, IMRMOVL } : valE; ### todo
+	icode in { IRMMOVL, IPUSHL, ICALL, IMRMOVL } : valE;
     icode in { IPOPL, IRET } : valA;
 	icode in { ILEAVE } : valA;
 	# Other instructions don't need address
@@ -205,7 +205,7 @@ int mem_addr = [
 ## Select memory input data
 int mem_data = [
 	# Value from register
-	icode in { IRMMOVL, IPUSHL } : valA; ### todo
+	icode in { IRMMOVL, IPUSHL } : valA;
 	# Return PC
 	icode == ICALL : valP;
 	# Default: Don't write anything
