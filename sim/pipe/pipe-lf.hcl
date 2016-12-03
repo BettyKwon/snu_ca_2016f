@@ -271,6 +271,9 @@ bool set_cc = E_icode == IOPL &&
 ##   from memory stage when appropriate
 ## Here it is set to the default used in the normal pipeline
 int e_valA = [
+    M_dstM == E_srcA        # TODO
+      && M_icode in { IMRMOVL, IPOPL } # : m_valM;
+      && E_icode in { IRMMOVL, IPUSHL } : m_valM;
 	1 : E_valA;  # Use valA from stage pipe register
 ];
 
